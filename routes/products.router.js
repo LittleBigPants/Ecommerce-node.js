@@ -32,9 +32,7 @@ router.post('/', async (req, res) =>{
     res.status(201).json(newProduct);
 
   } catch (error) {
-    res.status(406).json({
-      message : error.message
-    });
+    next(error);
   }
 
 
@@ -48,9 +46,7 @@ router.patch('/:id', async (req, res) =>{
     res.json(product);
 
   } catch (error) {
-    res.status(404).json({
-      message : error.message
-    });
+   next(error);
   }
 
 })
@@ -62,9 +58,7 @@ router.delete('/:id', async (req, res) =>{
     res.json(rta);
 
   } catch (error) {
-    res.status(404).json({
-      message : error.message
-    });
+    next(error)
   }
 
 })
