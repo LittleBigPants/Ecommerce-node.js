@@ -30,9 +30,7 @@ class ProductsService {
     if (!name || !price || !image) {
       throw new Error ("insert a product");
     } else {
-      console.log(name);
-      console.log(price);
-      console.log(image);
+
       const newProduct = {
         id : faker.datatype.uuid(),
         ...data
@@ -45,9 +43,11 @@ class ProductsService {
   }
   find () {
     return new Promise((resolve, reject) => {
-
+      setTimeout(() => {
+        resolve (this.products);
+      }, 2000);
     })
-    return this.products;
+
   }
   async findOne (id) {
     return this.products.find(item => item.id === id);
@@ -64,6 +64,7 @@ class ProductsService {
       ...changes
     }
     return this.products[index]
+
   }
   async delete (id) {
     const index = this.products.findIndex(item => item.id === id);
