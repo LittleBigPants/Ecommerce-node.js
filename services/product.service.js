@@ -2,6 +2,7 @@ const faker = require('faker');
 // boom libreria para code status
 const boom = require('@hapi/boom');
 
+
 class ProductsService {
 
   constructor() {
