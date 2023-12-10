@@ -1,4 +1,5 @@
 const faker = require('faker');
+const boom = require('@hapi/boom');
 
 class ProductsService {
 
@@ -50,6 +51,7 @@ class ProductsService {
 
   }
   async findOne (id) {
+    const name = this.getTotal();
     return this.products.find(item => item.id === id);
   }
   async update (id, changes) {
