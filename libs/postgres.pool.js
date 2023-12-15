@@ -1,3 +1,4 @@
+// esto para no tener datos importantes en el codigo
 const { Pool } = require('pg');
 
 const { config } = require('./../config/config');
@@ -11,3 +12,19 @@ const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${
 
 
 module.exports = pool;
+
+//codigo anterior
+// const { Pool } = require('pg');
+
+// const pool = new Pool({
+//   host: 'localhost',
+//   port: 5432,
+//   user: 'kevin',
+//   password: 'admin123',
+//   database: 'my_store',
+// });
+
+// module.exports = pool;
+
+
+
