@@ -11,6 +11,7 @@ function errorHandler(error, req, res, next) {
     message: error.message,
     stack: error.stack
   })
+  next(error);
 }
 
 

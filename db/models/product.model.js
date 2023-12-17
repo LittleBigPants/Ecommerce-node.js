@@ -1,20 +1,20 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const USER_TABLE = 'users';
+const PRODUCT_TABLE = 'products';
 
-const UserSchema = {
+const ProductSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  email: {
+  category: {
     allowNull: false,
     type: DataTypes.STRING,
     unique: true,
   },
-  password: {
+  name: {
     allowNull: false,
     type: DataTypes.STRING
   },
@@ -23,10 +23,16 @@ const UserSchema = {
     type: DataTypes.DATE,
     field: 'create_at',
     defaultValue: Sequelize.NOW
+  },
+  price: {
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+    type: DataTypes.INTEGER
   }
 }
 
-class User extends Model {
+class Product extends Model {
   static associate() {
     // associate
   }
@@ -34,8 +40,8 @@ class User extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      tableName: USER_TABLE,
-      modelName: 'User',
+      tableName: PRODUCT_TABLE,
+      modelName: 'Product',
       timestamps: false
     }
   }
@@ -43,4 +49,4 @@ class User extends Model {
 
 
 
-module.exports = { USER_TABLE, UserSchema, User }
+module.exports = { PRODUCT_TABLE, ProductSchema, Product }
