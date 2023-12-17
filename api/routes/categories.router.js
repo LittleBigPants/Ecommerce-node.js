@@ -24,4 +24,31 @@ router.get('/', async (req, res) => {
   res.json(categories);
 });
 
+router.post('/',
+  validatorHandler(createCategorySchema, 'body'),
+  async (req, res) =>{
+  try {
+    const body = req.body;
+    const newCategory = await service.create(body)
+    res.status(201).json(newCategory);
+
+  } catch (error) {
+    next(error);
+  }
+
+
+})
+
+router.delete('/:id', async (req, res) =>{
+  try {
+    const { id } = req.params;
+    const rta = await service.delete(id);
+    res.json(rta);
+
+  } catch (error) {
+    next(error)
+  }
+
+})
+
 module.exports = router;
