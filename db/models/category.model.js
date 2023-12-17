@@ -3,11 +3,17 @@ const { Model, DataTypes } = require('sequelize');
 const CATEGORY_TABLE = 'categories';
 
 const CategorySchema = {
-  category: {
+  name: {
     allowNull: false,
     type: DataTypes.STRING,
-    unique: false,
+    unique: true,
   },
+  id: {
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+    type: DataTypes.INTEGER
+  }
 }
 
 class Category extends Model {
