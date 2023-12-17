@@ -1,7 +1,7 @@
 
 const { User, UserSchema } = require('./user.model');
 const {Product, ProductSchema} = require('./product.model');
-const {CategorySchema, Category} = require('./category.model');
+const {Category, CategorySchema } = require('./category.model');
 
 function setupModels(sequelize) {
   User.init(UserSchema, User.config(sequelize));
