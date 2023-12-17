@@ -15,6 +15,6 @@ const sequelize = new Sequelize(URI, {
 
 setupModels(sequelize);
 
-sequelize.sync(); // esto no es recomendable en produccion
+// sequelize.sync(); // esto no es recomendable en produccion
 
 module.exports = sequelize
