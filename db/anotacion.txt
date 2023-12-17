@@ -1,0 +1,7 @@
+Las migraciones son:
+
+Las migraciones son la forma en que Django propaga cambios en los modelos y los refleja en el esquema de bases de datos. - Django.
+
+Las migraciones son como un sistema de control de versiones para la base de datos. - Laravel.
+
+Es como un sistema de control de versiones para manejar los cambios desde el código y trackear los cambios en la base de datos. - Sequelize.
