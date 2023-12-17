@@ -12,7 +12,7 @@ const ProductSchema = {
   category: {
     allowNull: false,
     type: DataTypes.STRING,
-    unique: true,
+    unique: false,
   },
   name: {
     allowNull: false,
