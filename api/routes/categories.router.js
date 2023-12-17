@@ -39,6 +39,35 @@ router.post('/',
 
 })
 
+router.get('/:id',
+  validatorHandler(getCategorySchema, 'params'),
+  async (req, res, next) => {
+  try {
+    const {id} = req.params;
+    const category = await service.findOne(id);
+    res.json(category);
+  } catch (error) {
+    next(error);
+  }
+
+});
+
+router.patch('/:id',
+  validatorHandler(getCategorySchema, 'params'),
+  validatorHandler(updateCategorySchema, 'body'),
+  async (req, res) =>{
+  try {
+    const { id } = req.params;
+    const body = req.body;
+    const category = await service.update(id, body);
+    res.json(category);
+
+  } catch (error) {
+   next(error);
+  }
+
+})
+
 router.delete('/:id', async (req, res) =>{
   try {
     const { id } = req.params;
