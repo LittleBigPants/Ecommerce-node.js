@@ -22,7 +22,21 @@ const ProductSchema = {
     allowNull: false,
     primaryKey: true,
     type: DataTypes.INTEGER
-  }
+  },
+  image: {
+    allowNull: false,
+    type: DataTypes.STRING,
+  },
+  description: {
+    allowNull: false,
+    type: DataTypes.TEXT,
+  },
+  createdAt: {
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'create_at',
+    defaultValue: Sequelize.NOW
+  },
 }
 
 class Product extends Model {

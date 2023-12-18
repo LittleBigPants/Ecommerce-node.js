@@ -13,12 +13,26 @@ const CategorySchema = {
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
+  },
+  createdAt: {
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'create_at',
+    defaultValue: Sequelize.NOW
+  },
+  image: {
+    allowNull: false,
+    type: DataTypes.STRING,
   }
 }
 
 class Category extends Model {
   static associate() {
     // associate
+    // this.hasOne(models.Customer, {
+    //   as: 'customer',
+    //   foreignKey: 'userId'
+    // })
   }
 
   static config(sequelize) {
