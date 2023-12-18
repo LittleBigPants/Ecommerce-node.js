@@ -1,14 +1,14 @@
 const faker = require('faker');
 // boom libreria para code status
 const boom = require('@hapi/boom');
-const sequelize = require('../../libs/sequelize');
+// const sequelize = require('../../libs/sequelize');
 const { models } = require('./../../libs/sequelize');
 
 class ProductsService {
 
   constructor() {
-    this.products = [];
-    this.generate();
+    // this.products = [];
+    // this.generate();
   }
 
   generate () {
@@ -19,6 +19,7 @@ class ProductsService {
         name: faker.commerce.productName(),
         price: parseInt(faker.commerce.price(), 10),
         image: faker.image.imageUrl(),
+        description: faker.commerce.productDescription(),
         isBlock: faker.datatype.boolean()
       });
 
@@ -26,25 +27,8 @@ class ProductsService {
   }
 
   async create (data) {
-    const {
-      name,
-      price,
-      image
-    } = data
-
-    if (!name || !price || !image) {
-      throw boom.notAcceptable('that is not a product, pleace insert a product');
-    } else {
-
-      const newProduct = {
-        id : faker.datatype.uuid(),
-        ...data
-      }
-
-      this.products.push(newProduct);
-      return newProduct;
-    }
-
+    const newProduct = await models.Product.create(data);
+    return newProduct;
   }
   async find () {
 

@@ -11,11 +11,6 @@ const ProductSchema = {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  category: {
-    allowNull: false,
-    type: DataTypes.STRING,
-    unique: false,
-  },
   name: {
     allowNull: false,
     type: DataTypes.STRING
@@ -54,7 +49,7 @@ const ProductSchema = {
 
 class Product extends Model {
   static associate(models) {
-    this.belongsTo(models.Category, {as: 'categories'});
+    this.belongsTo(models.Category, {as: 'category'});
   }
 
   static config(sequelize) {
