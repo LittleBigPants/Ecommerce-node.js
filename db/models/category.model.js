@@ -28,7 +28,7 @@ const CategorySchema = {
 }
 
 class Category extends Model {
-  static associate() {
+  static associate(models) {
     // associate
 		this.hasMany(models.Product, {
 			as: 'products',
