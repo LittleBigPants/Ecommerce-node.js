@@ -19,14 +19,18 @@ router.get('/:categoryId/products/:productId', (req, res) => {
 
 });
 
-router.get('/', async (req, res) => {
-  const categories = await service.find();
-  res.json(categories);
+router.get('/', async (req, res, next) => {
+  try {
+    const categories = await service.find();
+    res.json(categories);
+  } catch (error) {
+    next(error)
+  }
 });
 
 router.post('/',
   validatorHandler(createCategorySchema, 'body'),
-  async (req, res) =>{
+  async (req, res, next) =>{
   try {
     const body = req.body;
     const newCategory = await service.create(body)
@@ -55,7 +59,7 @@ router.get('/:id',
 router.patch('/:id',
   validatorHandler(getCategorySchema, 'params'),
   validatorHandler(updateCategorySchema, 'body'),
-  async (req, res) =>{
+  async (req, res, next) =>{
   try {
     const { id } = req.params;
     const body = req.body;
