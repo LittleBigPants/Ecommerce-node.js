@@ -2,7 +2,7 @@ const express = require('express');
 
 const CustomerService = require('./../services/customer.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { createCustomerSchema, updateCustomerSchema, getCustomerSchema } = require('./../schemas/user.schema');
+const { createCustomerSchema, updateCustomerSchema, getCustomerSchema } = require('./../schemas/customer.schema');
 
 const router = express.Router();
 const service = new CustomerService();
@@ -34,8 +34,8 @@ router.post('/',
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newCategory = await service.create(body);
-      res.status(201).json(newCategory);
+      const newCustomer = await service.create(body);
+      res.status(201).json(newCustomer);
     } catch (error) {
       next(error);
     }
