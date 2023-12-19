@@ -17,7 +17,7 @@ router.get(
 		try {
 			const { id } = req.params;
 			const order = await service.findOne(id);
-			res.json(order);
+        res.json(order)
 		} catch (error) {
 			next(error);
 		}
