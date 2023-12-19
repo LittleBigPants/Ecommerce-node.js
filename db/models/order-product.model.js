@@ -56,9 +56,8 @@ class OrderProduct extends Model {
       as: 'items',
       through: models.OrderProduct,
       foreignKey: 'orderId',
-      otherKey: 'productId',
-
-    });
+      otherKey: 'productId'
+  });
   }
   static config(sequelize) {
     return {

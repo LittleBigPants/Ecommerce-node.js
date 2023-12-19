@@ -9,6 +9,7 @@ const ProductSchema = {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
+    unique: true,
     type: DataTypes.INTEGER
   },
   name: {
