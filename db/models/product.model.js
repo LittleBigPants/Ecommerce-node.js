@@ -18,7 +18,6 @@ const ProductSchema = {
   },
   price: {
     allowNull: false,
-    primaryKey: true,
     type: DataTypes.INTEGER
   },
   image: {
