@@ -9,6 +9,7 @@ const CustomerSchema =  {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
+    unique: true,
     type: DataTypes.INTEGER
   },
   name: {

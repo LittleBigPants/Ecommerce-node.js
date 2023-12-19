@@ -9,6 +9,7 @@ const OrderSchema = {
 		allowNull: false,
 		autoIncrement: true,
 		primaryKey: true,
+    unique: true,
 		type: DataTypes.INTEGER,
 	},
 	customerId: {

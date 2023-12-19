@@ -20,6 +20,7 @@ function setupModels(sequelize) {
   User.associate(sequelize.models);
   Customer.associate(sequelize.models);
   Order.associate(sequelize.models);
+  OrderProduct.associate(sequelize.models);
 
 }
 
