@@ -10,7 +10,6 @@ const OrderProductSchema =  {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-    unique: true,
     type: DataTypes.INTEGER
   },
   createdAt: {
