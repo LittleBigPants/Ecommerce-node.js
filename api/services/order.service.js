@@ -26,6 +26,7 @@ class OrderService {
 					association: 'customer',
 					include: ['user'],
 				},
+        'items'
 			],
 		});
 		return order;
